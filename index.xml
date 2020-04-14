@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>:house: Home on Omelet</title>
+    <link>https://tamada.github.io/omelet/</link>
+    <description>Recent content in :house: Home on Omelet</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://tamada.github.io/omelet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>:anchor: Install</title>
+      <link>https://tamada.github.io/omelet/install/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamada.github.io/omelet/install/</guid>
+      <description>🍺 Homebrew brew install tamada/brew/omelet Go lang go get github.com/tamada/omelet 🛠️ Build from source codes $ git clone https://github.com/tamada/omelet.git $ cd omelet $ make </description>
+    </item>
+    
+    <item>
+      <title>:fork_and_knife: Usage</title>
+      <link>https://tamada.github.io/omelet/usage/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamada.github.io/omelet/usage/</guid>
+      <description>📎 CLI $ omelet --help omelet version 1.0.0 omelet [OPTIONS] &amp;lt;PROJECT_DIRs...&amp;gt; OPTIONS -c, --classpath &amp;lt;PATH&amp;gt; specifies classpath separated with colon. -d, --delete-tempfiles delete temporary files after running. -e, --excludes &amp;lt;REGEXP&amp;gt; specifies target exclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -i, --includes &amp;lt;REGEXP&amp;gt; specifies target inclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -n, --no-coverage no calculating coverage of test codes. -v, --verbose verbose mode. -h, --help print this message.</description>
+    </item>
+    
+    <item>
+      <title>:smile: About</title>
+      <link>https://tamada.github.io/omelet/about/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamada.github.io/omelet/about/</guid>
+      <description>📜 License 🐾 Developers  Haruaki Tamada  Why does the product names omelet? Because the lunch was omelet, when I developed this product.</description>
+    </item>
+    
+  </channel>
+</rss>

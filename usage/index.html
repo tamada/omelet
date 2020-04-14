@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Hugo 0.69.0" />
+  <link rel="stylesheet" href="/omelet/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  
+  
+  
+  <link rel="stylesheet" href="/omelet/css/cayman.ea0e967413f3851071cc8ace3621bc4205fe8fa79b2abe3d7bf94ff2841f0d47.css">
+  <link rel="stylesheet" href="/omelet/css/style.css">
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+  <title>🍴 Usage | Omelet</title>
+</head>
+
+<body>
+  <section class="page-header">
+  
+    <img src="https://tamada.github.io/omeletimages/omelette.svg" class="avatar" alt="project_logo">
+  
+  <h1 class="project-name">
+    omelet
+  </h1>
+  <h2 class="project-tagline">
+    An agent for running unit tests on the CLI environemnt for the Java platform
+  </h2>
+  <nav>
+    
+    
+      
+      
+      
+      
+      <a href="/omelet/" class="btn">🏠 Home</a>
+    
+      
+      
+      
+      
+      <a href="/omelet/install" class="btn">⚓ Install</a>
+    
+      
+      
+      
+      
+      <a href="/omelet/usage" class="btn">🍴 Usage</a>
+    
+      
+      
+      
+      
+      <a href="/omelet/about" class="btn">😄 About</a>
+    
+  </nav>
+</section>
+
+  <section class="main-content">
+    
+  <h1>🍴 Usage</h1>
+  <h2 id="-cli">📎 CLI</h2>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ omelet --help
+omelet version 1.0.0
+omelet <span style="color:#666">[</span>OPTIONS<span style="color:#666">]</span> &lt;PROJECT_DIRs...&gt;
+OPTIONS
+    -c, --classpath &lt;PATH&gt;      specifies classpath separated with colon.
+    -d, --delete-tempfiles      delete temporary files after running.
+    -e, --excludes &lt;REGEXP&gt;     specifies target exclusion rules <span style="color:#008000;font-weight:bold">for</span> unit tests. Default is <span style="color:#ba2121">&#34;&#34;</span> <span style="color:#666">(</span>no filtering<span style="color:#666">)</span>.
+    -i, --includes &lt;REGEXP&gt;     specifies target inclusion rules <span style="color:#008000;font-weight:bold">for</span> unit tests. Default is <span style="color:#ba2121">&#34;&#34;</span> <span style="color:#666">(</span>no filtering<span style="color:#666">)</span>.
+    -n, --no-coverage           no calculating coverage of <span style="color:#008000">test</span> codes.
+    -v, --verbose               verbose mode.
+
+    -h, --help                  print this message.
+ARGUMENTS
+    PRODUCT_CODES_DIR           specifies the directory contains the product codes.
+    TEST_CODES_DIR              specifies the directory contains the unit <span style="color:#008000">test</span> codes.
+</code></pre></div><h2 id="-docker">🐳 Docker</h2>
+<div class="highlight"><pre style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run --rm -v <span style="color:#19177c">$PWD</span>:/home/omelet tamada/omelet:1.0.0 project
+</code></pre></div><p>Above command should run on the directory contains <code>project</code> directory.</p>
+
+
+    <footer class="site-footer">
+  <span class="site-footer-credits">
+    <a href="https://github.com/tamada/omelet"><img src="https://img.shields.io/badge/GitHub-tamada/omelet-blueviolet.svg?logo=github" alt="GitHub"></a> Made with <a href="https://gohugo.io/">Hugo</a>. Theme by <a href="https://github.com/zwbetz-gh/cayman-hugo-theme">Cayman</a>. Deployed to <a href="https://pages.github.com/">GitHub Pages</a>.
+  </span>
+</footer>
+
+  </section>
+  
+  
+
+</body>
+</html>
