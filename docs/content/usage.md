@@ -1,21 +1,20 @@
-[![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelet/blob/master/LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelet/releases/tag/v1.0.0)
+---
+title: ":fork_and_knife: Usage"
+date: 2020-04-14
+---
 
-
-# Omelet
-
-An agent for running the unit tests on the CLI environment for the Java platform.
-
-## Usage
+## :paperclip: CLI
 
 ```sh
+$ omelet --help
+omelet version 1.0.0
 omelet [OPTIONS] <PROJECT_DIRs...>
 OPTIONS
     -c, --classpath <PATH>      specifies classpath separated with colon.
     -d, --delete-tempfiles      delete temporary files after running.
     -e, --excludes <REGEXP>     specifies target exclusion rules for unit tests. Default is "" (no filtering).
     -i, --includes <REGEXP>     specifies target inclusion rules for unit tests. Default is "" (no filtering).
-    -n, --no-coverage           no calculating coverage of the unit test codes.
+    -n, --no-coverage           no calculating coverage of test codes.
     -v, --verbose               verbose mode.
 
     -h, --help                  print this message.
@@ -24,11 +23,10 @@ ARGUMENTS
     TEST_CODES_DIR              specifies the directory contains the unit test codes.
 ```
 
-## どうやって実現する？？？
+## :whale: Docker
 
-* Apache Ivy で依存jarファイルをダウンロードする．
+```sh
+docker run --rm -v $PWD:/home/omelet tamada/omelet:1.0.0 project
+```
 
-## About
-
-
-Icons made by [Nhor Phai](https://www.flaticon.com/authors/nhor-phai) from [www.flaticon.com](https://www.flaticon.com/)
+Above command should run on the directory contains `project` directory.

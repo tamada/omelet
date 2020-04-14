@@ -1,4 +1,4 @@
-package omlet
+package omelet
 
 import "regexp"
 

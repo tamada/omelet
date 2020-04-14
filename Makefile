@@ -1,5 +1,5 @@
 GO := go
-NAME := omlet
+NAME := omelet
 VERSION := 1.0.0
 DIST := $(NAME)-$(VERSION)
 
@@ -12,7 +12,7 @@ update_version:
 	@for i in README.md docs/content/_index.md; do\
 		sed -e 's!Version-[0-9.]*-yellowgreen!Version-${VERSION}-yellowgreen!g' -e 's!tag/v[0-9.]*!tag/v${VERSION}!g' $$i > a ; mv a $$i; \
 	done
-	@sed 's/const VERSION = .*/const VERSION = "${VERSION}"/g' cmd/omlet/main.go > a; mv a cmd/omlet/main.go
+	@sed 's/const VERSION = .*/const VERSION = "${VERSION}"/g' cmd/omelet/main.go > a; mv a cmd/omelet/main.go
 	# @sed 's/ARG version=".*"/ARG version="${VERSION}"/g' Dockerfile > a ; mv a Dockerfile
 	@echo "Replace version to \"${VERSION}\""
 

@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>jp.cafebabe</groupId>
-  <artifactId>omlet</artifactId>
+  <artifactId>omelet</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>omlet</name>
-  <url>https://tamada.github.io/omlet</url>
+  <name>omelet</name>
+  <url>https://tamada.github.io/omelet</url>
 
   <developers>
     <developer>
@@ -22,14 +22,14 @@
   </developers>
 
   <issueManagement>
-    <url>https://github.com/tamada/omlet/issues</url>
+    <url>https://github.com/tamada/omelet/issues</url>
     <system>Github issues</system>
   </issueManagement>
 
   <scm>
-    <connection>scm:git:https://github.com/tamada/omlet.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:tamada/omlet.git</developerConnection>
-    <url>https://github.com/tamada/omlet</url>
+    <connection>scm:git:https://github.com/tamada/omelet.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:tamada/omelet.git</developerConnection>
+    <url>https://github.com/tamada/omelet</url>
     <tag>HEAD</tag>
   </scm>
 
