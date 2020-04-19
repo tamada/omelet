@@ -1,0 +1,36 @@
+baseURL = "https://tamada.github.io/omelet"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Omelet"
+enableEmoji = true
+theme = "cayman-hugo-theme"
+
+pygmentsCodefences = true
+pygmentsStyle = "pygments"
+
+[params]
+    project_name = "omelet"
+    project_logo = "images/omelette.svg"
+    project_tagline = "An agent for running unit tests on the CLI environemnt for the Java platform"
+    dateFormat = "2006-01-02"
+    katex = true
+
+    footer = "[![GitHub](https://img.shields.io/badge/GitHub-tamada/omelet-blueviolet.svg?logo=github)](https://github.com/tamada/omelet) Made with [Hugo](https://gohugo.io/). Theme by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme). Deployed to [GitHub Pages](https://pages.github.com/)."
+
+[menu]
+    [[menu.nav]]
+        name = ":house: Home"
+        url = "/"
+        weight = 10
+    [[menu.nav]]
+        name = ":anchor: Install"
+        url = "/install"
+        weight = 20
+    [[menu.nav]]
+        name = ":fork_and_knife: Usage"
+        url = "/usage"
+        weight = 30
+    [[menu.nav]]
+        name = ":smile: About"
+        url = "/about"
+        weight = 40

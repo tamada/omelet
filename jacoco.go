@@ -1,4 +1,4 @@
-package omlet
+package omelet
 
 import (
 	"encoding/csv"
@@ -141,7 +141,7 @@ func writeFile(out io.Writer, items []*JacocoItem) error {
 	return nil
 }
 
-func JacocoToOmlet(reader io.Reader, writer io.Writer) error {
+func JacocoToOmelet(reader io.Reader, writer io.Writer) error {
 	items, err := readJacocoCsv(reader)
 	if err != nil {
 		return err

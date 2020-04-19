@@ -1,4 +1,4 @@
-module github.com/tamada/omlet
+module github.com/tamada/omelet
 
 go 1.14
 
