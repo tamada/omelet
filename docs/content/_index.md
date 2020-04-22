@@ -27,4 +27,5 @@ Then, `omelet` runs unit tests of given project and compute test coverage by [Ja
 * [:smile: About](about)
     * [:scroll: License](about#-license)
     * [:paw_prints: Developers](about#-developers)
-    * [Why does the product names omelet?](about#why-does-the-product-names-omelet)
+    * [:question: Why does the product names omelet?](about#-why-does-the-product-names-omelet)
+    * [:deciduous_tree: Attributions](about#-attributions)
