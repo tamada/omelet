@@ -22,11 +22,3 @@ ARGUMENTS
     PRODUCT_CODES_DIR           specifies the directory contains the product codes.
     TEST_CODES_DIR              specifies the directory contains the unit test codes.
 ```
-
-## :whale: Docker
-
-```sh
-docker run --rm -v $PWD:/home/omelet tamada/omelet:1.0.0 project
-```
-
-Above command should run on the directory contains `project` directory.
