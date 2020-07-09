@@ -20,14 +20,13 @@ func TestCollectFiles(t *testing.T) {
 	testdata := []struct {
 		projectPath          string
 		wontName             string
-		wontType             string
 		wontProductFileCount int
 		wontTestFileCount    int
 		wontProductFiles     []string
 		wontTestFiles        []string
 	}{
-		{"testdata/mavenproject", "mavenproject", "maven", 1, 2, []string{"A.class"}, []string{"B.class", "C.class"}},
-		{"testdata/gradleproject", "gradleproject", "gradle", 3, 4, []string{"D.class", "E.clsas", "F.class"}, []string{"G.class", "H.class", "I.class", "J.class"}},
+		{"testdata/mavenproject", "mavenproject", 1, 2, []string{"A.class"}, []string{"B.class", "C.class"}},
+		{"testdata/gradleproject", "gradleproject", 3, 4, []string{"D.class", "E.clsas", "F.class"}, []string{"G.class", "H.class", "I.class", "J.class"}},
 	}
 
 	for _, td := range testdata {
@@ -38,9 +37,6 @@ func TestCollectFiles(t *testing.T) {
 		}
 		if project.Name() != td.wontName {
 			t.Errorf("%s: project name did not match, wont %s, got %s", td.projectPath, td.wontName, project.Name())
-		}
-		if project.Builder.Name() != td.wontType {
-			t.Errorf("Builder type did not match, wont %s, got %s", td.wontType, project.Builder.Name())
 		}
 		gotProducts, _ := CollectClassFiles(project.ProductCodesDir())
 		gotTests, _ := CollectClassFiles(project.TestCodesDir())

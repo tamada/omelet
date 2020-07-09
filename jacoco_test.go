@@ -15,7 +15,7 @@ func TestJacocoToOmelet(t *testing.T) {
 	defer writer.Close()
 	defer os.Remove("testdata/result_tmp.csv")
 	strWriter := &strings.Builder{}
-	JacocoToOmelet(reader, io.MultiWriter(writer, strWriter))
+	jacocoToOmelet(reader, io.MultiWriter(writer, strWriter))
 	entries := strings.Split(strings.TrimSpace(strWriter.String()), "\n")
 	if len(entries) != 16 {
 		t.Errorf("the length of result did not match, wont 16, got %d", len(entries))
@@ -33,13 +33,13 @@ func TestParseJacocoItem(t *testing.T) {
 		giveString      string
 		wontPackage     string
 		wontClassName   string
-		wontInstruction *Coverage
-		wontBranch      *Coverage
-		wontLine        *Coverage
-		wontComplexity  *Coverage
-		wontMethod      *Coverage
+		wontInstruction *coverage
+		wontBranch      *coverage
+		wontLine        *coverage
+		wontComplexity  *coverage
+		wontMethod      *coverage
 	}{
-		{"JaCoCo Coverage Report,nmaker,Fraction,44,94,3,7,7,15,5,9,2,7\r\nJaCoCo Coverage Report,nmaker,Number,14,116,2,8,4,22,4,17,2,14\n", "nmaker", "Number", NewCoverage("14", "116"), NewCoverage("2", "8"), NewCoverage("4", "22"), NewCoverage("4", "17"), NewCoverage("2", "14")},
+		{"JaCoCo Coverage Report,nmaker,Fraction,44,94,3,7,7,15,5,9,2,7\r\nJaCoCo Coverage Report,nmaker,Number,14,116,2,8,4,22,4,17,2,14\n", "nmaker", "Number", newCoverage("14", "116"), newCoverage("2", "8"), newCoverage("4", "22"), newCoverage("4", "17"), newCoverage("2", "14")},
 	}
 	for _, td := range testdata {
 		items, err := readJacocoCsv(strings.NewReader(td.giveString))
@@ -71,7 +71,7 @@ func TestCoverage(t *testing.T) {
 	}
 
 	for _, td := range testdata {
-		metric := NewCoverage(td.missed, td.covered)
+		metric := newCoverage(td.missed, td.covered)
 		if metric.IsNA() != td.naFlag {
 			t.Errorf("coverage should be NA flag, wont %v, got %v", td.naFlag, metric.IsNA())
 		}

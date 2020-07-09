@@ -1,31 +1,115 @@
 package omelet
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
 )
 
-type Project struct {
+type TestRunner interface {
+	Name() string
+	AppendClasspath(path string)
+	Perform(config *Config) error
+	DestDir() string
+	Postprocess(config *Config)
+}
+
+type Project interface {
+	Name() string
+	BaseDir() string
+	ProductCodesDir() string
+	TestCodesDir() string
+	String() string
+}
+
+type FakeProject struct {
+	productCodeDir string
+	testCodeDir    string
+	name           string
+}
+
+func NewFakeProject(name, productDir, testDir string) *FakeProject {
+	return &FakeProject{name: name, productCodeDir: productDir, testCodeDir: testDir}
+}
+
+func (fp *FakeProject) String() string {
+	return fmt.Sprintf("FakeProject{ name: %s, product: %s, test: %s}", fp.name, fp.productCodeDir, fp.testCodeDir)
+}
+
+func (fp *FakeProject) Name() string {
+	return fp.name
+}
+
+func (fp *FakeProject) BaseDir() string {
+	wd, _ := os.Getwd()
+	return wd
+}
+
+func (fp *FakeProject) ProductCodesDir() string {
+	return fp.productCodeDir
+}
+
+func (fp *FakeProject) TestCodesDir() string {
+	return fp.testCodeDir
+}
+
+type BasicProject struct {
 	Path    string
 	Builder BuilderType
 }
 
-func NewProject(path string) (*Project, error) {
+func NewProject(path string) (Project, error) {
 	builder, err := ParseType(path)
-	return &Project{Path: path, Builder: builder}, err
+	return &BasicProject{Path: path, Builder: builder}, err
 }
 
-func (project *Project) Name() string {
-	return filepath.Base(project.Path)
+func (project *BasicProject) String() string {
+	return fmt.Sprintf("BasicProject{ path: %s, builder: %s }", project.Path, project.Builder.Name())
 }
 
-func (project *Project) ProductCodesDir() string {
+func (project *BasicProject) Name() string {
+	return filepath.Base(project.BaseDir())
+}
+
+func (project *BasicProject) BaseDir() string {
+	return project.Path
+}
+
+func (project *BasicProject) ProductCodesDir() string {
 	return project.Builder.ProductCodeDir(project)
 }
 
-func (project *Project) TestCodesDir() string {
+func (project *BasicProject) TestCodesDir() string {
 	return project.Builder.TestCodeDir(project)
+}
+
+func CollectTestTarget(project Project) ([]string, error) {
+	base := project.TestCodesDir()
+	targets, err := CollectSuffix(base, "Test.class")
+	if err != nil {
+		return []string{}, err
+	}
+	return convertToClassNames(base, targets), nil
+}
+
+func convertToClassNames(base string, targets []string) []string {
+	results := []string{}
+	for _, c := range targets {
+		results = append(results, toClassName(base, c))
+	}
+	return results
+}
+
+func toClassName(base, path string) string {
+	relPath, err := filepath.Rel(base, path)
+	if err != nil {
+		relPath = path
+	}
+	if strings.HasSuffix(relPath, ".class") {
+		relPath = strings.TrimSuffix(relPath, ".class")
+	}
+	return strings.ReplaceAll(relPath, "/", ".")
 }
 
 func CollectSuffix(basePath, suffix string) ([]string, error) {
