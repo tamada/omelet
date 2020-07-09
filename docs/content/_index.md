@@ -3,8 +3,8 @@ title: ":house: Home"
 date: 2020-04-14
 ---
 
-[![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelet/blob/master/LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelet/releases/tag/v1.0.0)
+[![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelette/blob/master/LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.0.0)
 
 
 ## :bookmark_tabs: Description
@@ -13,7 +13,7 @@ In the Java platform, we usually run the unit tests through some build tool, suc
 However, it is hard to run the unit tests on the cli environment, since it is not clearly to execute them.
 Also, computing coverage makes us more complicated.
 
-Then, `omelet` runs unit tests of given project and compute test coverage by [Jacoco](https://www.eclemma.org/jacoco/).
+Then, `omelette` runs unit tests of given project and compute test coverage by [Jacoco](https://www.eclemma.org/jacoco/).
 
 ## :bookmark: Table of Contents
 
@@ -27,5 +27,5 @@ Then, `omelet` runs unit tests of given project and compute test coverage by [Ja
 * [:smile: About](about)
     * [:scroll: License](about#-license)
     * [:paw_prints: Developers](about#-developers)
-    * [:question: Why does the product names omelet?](about#-why-does-the-product-names-omelet)
+    * [:question: Why does the product names omelette?](about#-why-does-the-product-names-omelette)
     * [:deciduous_tree: Attributions](about#-attributions)

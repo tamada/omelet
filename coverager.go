@@ -1,11 +1,11 @@
-package omelet
+package omelette
 
 /*
 Coverager generates arguments for computing coverages.
 */
 type Coverager interface {
 	Args(tr TestRunner, project Project, config *Config) string
-	ToOmeletFormat(tr TestRunner, project Project, config *Config) error
+	ToOmeletteFormat(tr TestRunner, project Project, config *Config) error
 }
 
 type NoCoverager struct {
@@ -15,7 +15,7 @@ func (nc *NoCoverager) Args(tr TestRunner, project Project, config *Config) stri
 	return ""
 }
 
-func (nc *NoCoverager) ToOmeletFormat(tr TestRunner, project Project, config *Config) error {
+func (nc *NoCoverager) ToOmeletteFormat(tr TestRunner, project Project, config *Config) error {
 	return nil
 }
 

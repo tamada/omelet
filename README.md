@@ -1,15 +1,15 @@
-[![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelet/blob/master/LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelet/releases/tag/v1.0.0)
+[![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelette/blob/master/LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.0.0)
 
 
-# Omelet
+# Omelette
 
 An agent for running the unit tests on the CLI environment for the Java platform.
 
 ## Usage
 
 ```sh
-omelet [OPTIONS] <PROJECT_DIRs...>
+omelette [OPTIONS] <PROJECT_DIRs...>
 OPTIONS
     -c, --classpath <PATH>      specifies classpath separated with colon.
     -d, --delete-tempfiles      delete temporary files after running.
@@ -24,11 +24,7 @@ ARGUMENTS
     TEST_CODES_DIR              specifies the directory contains the unit test codes.
 ```
 
-## どうやって実現する？？？
-
-* Apache Ivy で依存jarファイルをダウンロードする．
 
 ## About
-
 
 Icons made by [Nhor Phai](https://www.flaticon.com/authors/nhor-phai) from [www.flaticon.com](https://www.flaticon.com/)

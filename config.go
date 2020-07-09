@@ -1,11 +1,11 @@
-package omelet
+package omelette
 
 import (
 	"log"
 	"os"
 )
 
-const OMELET_HOME_ENV_NAME = "OMELET_HOME"
+const OMELETTE_HOME_ENV_NAME = "OMELETTE_HOME"
 
 type Config struct {
 	filter         Filter
@@ -19,7 +19,7 @@ func NewConfig(filter Filter, removeTempFileFlag bool, verboseFlag bool) *Config
 	config := &Config{filter: filter, removeTempFile: removeTempFileFlag, verbose: verboseFlag}
 	wd, _ := os.Getwd()
 	config.currentDir = wd
-	config.home = getOmeletHome()
+	config.home = getOmeletteHome()
 	return config
 }
 
@@ -31,7 +31,7 @@ func (config *Config) CurrentDir() string {
 	return config.currentDir
 }
 
-func (config *Config) OmeletHome() string {
+func (config *Config) OmeletteHome() string {
 	return config.home
 }
 
@@ -41,8 +41,8 @@ func (config *Config) PrintIfVerbose(formatter string, args ...interface{}) {
 	}
 }
 
-func getOmeletHome() string {
-	path := os.Getenv(OMELET_HOME_ENV_NAME)
+func getOmeletteHome() string {
+	path := os.Getenv(OMELETTE_HOME_ENV_NAME)
 	if path != "" && ExistsFile(path) {
 		return path
 	}

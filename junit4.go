@@ -1,4 +1,4 @@
-package omelet
+package omelette
 
 import (
 	"fmt"
@@ -46,7 +46,7 @@ func (j4tr *JUnit4TestRunner) AppendClasspath(path string) {
 }
 
 func buildCli(j4tr *JUnit4TestRunner, config *Config) (string, error) {
-	j4tr.AppendClasspath(filepath.Join(config.OmeletHome(), "data/junit4"))
+	j4tr.AppendClasspath(filepath.Join(config.OmeletteHome(), "data/junit4"))
 	classpath := strings.Join(j4tr.Classpaths, ":")
 	coverage := j4tr.Coverager.Args(j4tr, j4tr.Project, config)
 	arguments, err := CollectTestTarget(j4tr.Project)
@@ -64,7 +64,7 @@ func (j4tr *JUnit4TestRunner) Perform(config *Config) error {
 	if err := j4tr.executeUnitTests(config); err != nil {
 		return err
 	}
-	return j4tr.Coverager.ToOmeletFormat(j4tr, j4tr.Project, config)
+	return j4tr.Coverager.ToOmeletteFormat(j4tr, j4tr.Project, config)
 }
 
 func (j4tr *JUnit4TestRunner) executeUnitTests(config *Config) error {

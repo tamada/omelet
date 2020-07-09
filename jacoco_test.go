@@ -1,4 +1,4 @@
-package omelet
+package omelette
 
 import (
 	"io"
@@ -8,14 +8,14 @@ import (
 	"testing"
 )
 
-func TestJacocoToOmelet(t *testing.T) {
+func TestJacocoToOmelette(t *testing.T) {
 	reader, _ := os.Open("testdata/nmaker_jacoco.csv")
 	writer, _ := os.OpenFile("testdata/result_tmp.csv", os.O_WRONLY|os.O_CREATE, 0600)
 	defer reader.Close()
 	defer writer.Close()
 	defer os.Remove("testdata/result_tmp.csv")
 	strWriter := &strings.Builder{}
-	jacocoToOmelet(reader, io.MultiWriter(writer, strWriter))
+	jacocoToOmelette(reader, io.MultiWriter(writer, strWriter))
 	entries := strings.Split(strings.TrimSpace(strWriter.String()), "\n")
 	if len(entries) != 16 {
 		t.Errorf("the length of result did not match, wont 16, got %d", len(entries))

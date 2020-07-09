@@ -6,7 +6,7 @@ date: 2020-04-14
 ## :beer: Homebrew
 
 ```sh
-brew install tamada/brew/omelet
+brew install tamada/brew/omelette
 ```
 
 ## Go lang
@@ -18,7 +18,7 @@ go get github.com/tamada/omelet
 ## :hammer_and_wrench: Build from source codes
 
 ```sh
-$ git clone https://github.com/tamada/omelet.git
+$ git clone https://github.com/tamada/omelette.git
 $ cd omelet
 $ make
 ```

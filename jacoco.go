@@ -1,4 +1,4 @@
-package omelet
+package omelette
 
 import (
 	"encoding/csv"
@@ -17,7 +17,7 @@ JacocoCoverager is an implementation of Coverager.
 type JacocoCoverager struct {
 }
 
-func jacocoCsvToOmelet(from, to string) error {
+func jacocoCsvToOmelette(from, to string) error {
 	reader, err1 := os.Open(from)
 	if err1 != nil {
 		return err1
@@ -27,18 +27,18 @@ func jacocoCsvToOmelet(from, to string) error {
 	if err2 != nil {
 		return err2
 	}
-	return jacocoToOmelet(reader, writer)
+	return jacocoToOmelette(reader, writer)
 }
 
-func (jc *JacocoCoverager) ToOmeletFormat(tr TestRunner, project Project, config *Config) error {
+func (jc *JacocoCoverager) ToOmeletteFormat(tr TestRunner, project Project, config *Config) error {
 	if err := executeJacocoReport(tr, project, config); err != nil {
 		return err
 	}
-	config.PrintIfVerbose("convert jacoco csv to omelet csv format")
+	config.PrintIfVerbose("convert jacoco csv to omelette csv format")
 	from := filepath.Join(tr.DestDir(), project.Name()+"_jacoco.csv")
 	wd, _ := os.Getwd()
 	to := filepath.Join(wd, project.Name()+"_coverage.csv")
-	return jacocoCsvToOmelet(from, to)
+	return jacocoCsvToOmelette(from, to)
 }
 
 func executeJacocoReport(tr TestRunner, project Project, config *Config) error {
@@ -56,8 +56,8 @@ func executeJacocoReport(tr TestRunner, project Project, config *Config) error {
 }
 
 func (jc *JacocoCoverager) Args(tr TestRunner, project Project, config *Config) string {
-	omelet := config.OmeletHome()
-	jacocoPath := filepath.Join(omelet, "data/jacocoagent.jar")
+	omelette := config.OmeletteHome()
+	jacocoPath := filepath.Join(omelette, "data/jacocoagent.jar")
 	dest := filepath.Join(tr.DestDir(), project.Name()+"_jacoco.exec")
 	return fmt.Sprintf(`-javaagent:%s=destfile=%s`, jacocoPath, dest)
 }
@@ -197,7 +197,7 @@ func writeFile(out io.Writer, items []*jacocoItem) error {
 	return nil
 }
 
-func jacocoToOmelet(reader io.Reader, writer io.Writer) error {
+func jacocoToOmelette(reader io.Reader, writer io.Writer) error {
 	items, err := readJacocoCsv(reader)
 	if err != nil {
 		return err
