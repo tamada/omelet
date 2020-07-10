@@ -55,33 +55,43 @@ func (fp *FakeProject) TestCodesDir() string {
 }
 
 type BasicProject struct {
-	Path    string
-	Builder BuilderType
+	path    string
+	name    string
+	builder BuilderType
 }
 
 func NewProject(path string) (Project, error) {
+	base := filepath.Base(path)
+	if base == "." || base == ".." {
+		if abs, err := filepath.Abs(path); err == nil {
+			path = abs
+		}
+	}
 	builder, err := ParseType(path)
-	return &BasicProject{Path: path, Builder: builder}, err
+	if err != nil {
+		return nil, err
+	}
+	return &BasicProject{name: filepath.Base(path), path: path, builder: builder}, err
 }
 
 func (project *BasicProject) String() string {
-	return fmt.Sprintf("BasicProject{ path: %s, builder: %s }", project.Path, project.Builder.Name())
+	return fmt.Sprintf("BasicProject{ path: %s, builder: %s }", project.path, project.builder.Name())
 }
 
 func (project *BasicProject) Name() string {
-	return filepath.Base(project.BaseDir())
+	return project.name
 }
 
 func (project *BasicProject) BaseDir() string {
-	return project.Path
+	return project.path
 }
 
 func (project *BasicProject) ProductCodesDir() string {
-	return project.Builder.ProductCodeDir(project)
+	return project.builder.ProductCodeDir(project)
 }
 
 func (project *BasicProject) TestCodesDir() string {
-	return project.Builder.TestCodeDir(project)
+	return project.builder.TestCodeDir(project)
 }
 
 func CollectTestTarget(project Project) ([]string, error) {

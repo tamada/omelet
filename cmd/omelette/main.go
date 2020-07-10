@@ -73,6 +73,16 @@ func (projectOpts *projectOpts) availableDirs() bool {
 	return projectOpts.productDir != "" && projectOpts.testDir != "" && existsDirectory(projectOpts.productDir) && existsDirectory(projectOpts.testDir)
 }
 
+func (projectOpts *projectOpts) buildFakeProject(args []string, config *omelette.Config) (omelette.Project, error) {
+	name := "unknown"
+	if len(args) == 1 {
+		name = args[0]
+	}
+	project := omelette.NewFakeProject(name, projectOpts.productDir, projectOpts.testDir)
+	config.PrintIfVerbose("%s: %s", args[0], project.String())
+	return project, nil
+}
+
 func (projectOpts *projectOpts) buildProject(args []string, config *omelette.Config) (omelette.Project, error) {
 	if len(args) == 1 && existsDirectory(args[0]) {
 		project, err := omelette.NewProject(args[0])
@@ -82,13 +92,7 @@ func (projectOpts *projectOpts) buildProject(args []string, config *omelette.Con
 		}
 	}
 	if projectOpts.availableDirs() {
-		name := "unknown"
-		if len(args) == 1 {
-			name = args[0]
-		}
-		project := omelette.NewFakeProject(name, projectOpts.productDir, projectOpts.testDir)
-		config.PrintIfVerbose("%s: %s", args[0], project.String())
-		return project, nil
+		return projectOpts.buildFakeProject(args, config)
 	}
 	return nil, fmt.Errorf("%s: cannot build project", args[0])
 }
