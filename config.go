@@ -6,6 +6,7 @@ import (
 )
 
 const OMELETTE_HOME_ENV_NAME = "OMELETTE_HOME"
+const HOMEBREW_INSTALLED_LOCATION = "/usr/local/opt/omelette"
 
 type Config struct {
 	filter         Filter
@@ -42,9 +43,15 @@ func (config *Config) PrintIfVerbose(formatter string, args ...interface{}) {
 }
 
 func getOmeletteHome() string {
-	path := os.Getenv(OMELETTE_HOME_ENV_NAME)
-	if path != "" && ExistsDir(path) {
-		return path
+	generators := []func() string{
+		func() string { return os.Getenv(OMELETTE_HOME_ENV_NAME) },
+		func() string { return HOMEBREW_INSTALLED_LOCATION },
+	}
+	for _, generator := range generators {
+		path := generator()
+		if path != "" && ExistsDir(path) {
+			return path
+		}
 	}
 	wd, _ := os.Getwd()
 	return wd
