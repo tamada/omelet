@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+const JUNIT4_LIB_DIR = "lib/junit4"
+
 type JUnit4TestRunner struct {
 	Project    Project
 	Coverager  Coverager
@@ -46,7 +48,7 @@ func (j4tr *JUnit4TestRunner) AppendClasspath(path string) {
 }
 
 func buildCli(j4tr *JUnit4TestRunner, config *Config) (string, error) {
-	j4tr.AppendClasspath(filepath.Join(config.OmeletteHome(), "data/junit4"))
+	j4tr.AppendClasspath(filepath.Join(config.OmeletteHome(), JUNIT4_LIB_DIR))
 	classpath := strings.Join(j4tr.Classpaths, ":")
 	coverage := j4tr.Coverager.Args(j4tr, j4tr.Project, config)
 	arguments, err := CollectTestTarget(j4tr.Project)

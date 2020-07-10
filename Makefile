@@ -1,6 +1,6 @@
 GO := go
 NAME := omelette
-VERSION := 1.0.0
+VERSION := 1.1.0
 DIST := $(NAME)-$(VERSION)
 
 all: test build
@@ -13,17 +13,19 @@ update_version:
 		sed -e 's!Version-[0-9.]*-yellowgreen!Version-${VERSION}-yellowgreen!g' -e 's!tag/v[0-9.]*!tag/v${VERSION}!g' $$i > a ; mv a $$i; \
 	done
 	@sed 's/const VERSION = .*/const VERSION = "${VERSION}"/g' cmd/omelette/main.go > a; mv a cmd/omelette/main.go
-	# @sed 's/ARG version=".*"/ARG version="${VERSION}"/g' Dockerfile > a ; mv a Dockerfile
 	@echo "Replace version to \"${VERSION}\""
 
-test: setup
+lib/jacococli.jar:
+	sh ./bin/download_dependencies.sh
+
+test: setup lib/jacococli.jar
 	$(GO) test -covermode=count -coverprofile=coverage.out $$(go list ./... | grep -v vendor)
 
 # refer from https://pod.hatenablog.com/entry/2017/06/13/150342
 define _createDist
 	mkdir -p dist/$(1)_$(2)/$(DIST)
-	GOOS=$1 GOARCH=$2 go build -o dist/$(1)_$(2)/$(DIST)/$(NAME)$(3) cmd/$(NAME)/main.go
-	cp -r README.md LICENSE dist/$(1)_$(2)/$(DIST)
+	cp -r bin completions README.md LICENSE dist/$(1)_$(2)/$(DIST)
+	GOOS=$1 GOARCH=$2 go build -o dist/$(1)_$(2)/$(DIST)/bin/$(NAME)$(3) cmd/$(NAME)/main.go
 	tar cfz dist/$(DIST)_$(1)_$(2).tar.gz -C dist/$(1)_$(2) $(DIST)
 endef
 

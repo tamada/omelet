@@ -12,7 +12,7 @@ brew install tamada/brew/omelette
 ## Go lang
 
 ```sh
-go get github.com/tamada/omelet
+go get github.com/tamada/omelette
 ```
 
 ## :hammer_and_wrench: Build from source codes

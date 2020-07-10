@@ -3,17 +3,23 @@ title: ":house: Home"
 date: 2020-04-14
 ---
 
+[![codebeat badge](https://codebeat.co/badges/23134092-de46-44aa-942c-5d4a070eaf3c)](https://codebeat.co/projects/github-com-tamada-omelette-master)
 [![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelette/blob/master/LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.0-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.0.0)
+[![Version](https://img.shields.io/badge/Version-1.1.0-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.1.0)
 
 
 ## :bookmark_tabs: Description
 
 In the Java platform, we usually run the unit tests through some build tool, such as [Maven](https://maven.apache.org), [Gradle](https://gradle.org), and so on.
-However, it is hard to run the unit tests on the cli environment, since it is not clearly to execute them.
-Also, computing coverage makes us more complicated.
+However, it is hard to run the unit tests on the CLI environment.
 
-Then, `omelette` runs unit tests of given project and compute test coverage by [Jacoco](https://www.eclemma.org/jacoco/).
+Calculating test coverages is also complicated for novice programmers.
+Since, it requires understanding how to use several libraries (unit test library, coverage measuring library, and the build tool).
+
+Running the unit tests and calculating test coverages usually requires software projects.
+It is generally tiresome for calculating test coverages of toy programs with their unit tests.
+
+Therefore, we developed `omelette` for running unit tests and calculating test coverages in the CLI environment for the Java platform.
 
 ## :bookmark: Table of Contents
 
@@ -21,9 +27,9 @@ Then, `omelette` runs unit tests of given project and compute test coverage by [
     * [:beer: Homebrew](install#-homebrew)
     * [Go lang](install#go-lang)
     * [:hammer_and_wrench: Build from source codes](install#-build-from-source-codes)
-* [:fork_and_knife: Usage](usage)
+* [:runner: Usage](usage)
     * [:paperclip: CLI](usage#-cli)
-    * [:whale: Docker](usage#-docker)
+    * [:briefcase: Requirements](usage#-requirements)
 * [:smile: About](about)
     * [:scroll: License](about#-license)
     * [:paw_prints: Developers](about#-developers)

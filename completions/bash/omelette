@@ -1,0 +1,28 @@
+__omelette() {
+    local cur prev words cwords split
+    _init_completion -s || return
+
+    case "${prev}" in
+        "--classpath" | "-c")
+            compopt -o filenames
+            COMPREPLY=($(compgen -f -- "${cur}"))
+            return 0
+            ;;
+        "--product-code" | "--test-code" | "-p" | "-t")
+            compopt -o filenames
+            COMPREPLY=($(compgen -d -- "${cur}"))
+            return 0
+            ;;
+    esac
+    local opts="-c -d -e -i -n -p -t -v -h  --classpath --delete-tempfiles --excludes --includes --no-coverage --product-code --test-code --verbose --help"
+    if [[ "$cur" =~ ^\- ]]; then
+        COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+        return 0
+    else
+        compopt -o filenames
+        COMPREPLY=($(compgen -d -- "$cur"))
+    fi
+    return 0
+}
+
+complete -F __omelette omelette

@@ -15,7 +15,7 @@ date: 2020-04-14
     * :+1: Distribution, and
     * :+1: Private use.
 
-## :paw_prints: Developers
+## :man_office_worker: Developers :woman_office_worker:
 
 * [Haruaki Tamada](https://tamada.github.io)
 
@@ -23,6 +23,6 @@ date: 2020-04-14
 
 Because the lunch was omelette, when I developed this product.
 
-## :deciduous_tree: Attributions
+## :handshake: Attributions
 
 {{< logo src="../images/omelette.svg" width="64" caption="This icons made by [Nhor Phai](https://www.flaticon.com/authors/nhor-phai) from [www.flaticon.com](https://www.flaticon.com/)" >}}

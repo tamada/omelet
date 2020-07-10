@@ -11,6 +11,8 @@ import (
 	"strings"
 )
 
+const JACOCO_LIB_DIR = "lib"
+
 /*
 JacocoCoverager is an implementation of Coverager.
 */
@@ -43,10 +45,10 @@ func (jc *JacocoCoverager) ToOmeletteFormat(tr TestRunner, project Project, conf
 
 func executeJacocoReport(tr TestRunner, project Project, config *Config) error {
 	config.PrintIfVerbose("report JaCoCo coverages in csv format")
-	wd, _ := os.Getwd()
+	wd := config.OmeletteHome()
 	execFile := fmt.Sprintf("%s/%s_jacoco.exec", tr.DestDir(), project.Name())
 	csvFile := fmt.Sprintf("%s/%s_jacoco.csv", tr.DestDir(), project.Name())
-	cli := fmt.Sprintf("-jar %s/data/jacococli.jar report %s --classfiles %s --csv %s", wd, execFile, project.ProductCodesDir(), csvFile)
+	cli := fmt.Sprintf("-jar %s/%s/jacococli.jar report %s --classfiles %s --csv %s", wd, JACOCO_LIB_DIR, execFile, project.ProductCodesDir(), csvFile)
 	config.PrintIfVerbose("execute: java %s", cli)
 	cmd := exec.Command("java", strings.Split(cli, " ")...)
 	out, err := cmd.Output()
@@ -57,7 +59,7 @@ func executeJacocoReport(tr TestRunner, project Project, config *Config) error {
 
 func (jc *JacocoCoverager) Args(tr TestRunner, project Project, config *Config) string {
 	omelette := config.OmeletteHome()
-	jacocoPath := filepath.Join(omelette, "data/jacocoagent.jar")
+	jacocoPath := filepath.Join(omelette, JACOCO_LIB_DIR, "jacocoagent.jar")
 	dest := filepath.Join(tr.DestDir(), project.Name()+"_jacoco.exec")
 	return fmt.Sprintf(`-javaagent:%s=destfile=%s`, jacocoPath, dest)
 }
