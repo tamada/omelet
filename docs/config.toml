@@ -28,10 +28,14 @@ pygmentsStyle = "pygments"
         url = "/install"
         weight = 20
     [[menu.nav]]
-        name = ":fork_and_knife: Usage"
+        name = ":runner: Usage"
         url = "/usage"
         weight = 30
     [[menu.nav]]
+        name = ":horse_racing: Examples"
+        url = "/examples"
+        weight = 40
+    [[menu.nav]]
         name = ":smile: About"
         url = "/about"
-        weight = 40
+        weight = 50

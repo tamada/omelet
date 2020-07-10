@@ -35,6 +35,6 @@ Therefore, we developed `omelette` for running unit tests and calculating test c
     * [nmaker](examples#nmaker)
 * [:smile: About](about)
     * [:scroll: License](about#-license)
-    * [:paw_prints: Developers](about#-developers)
+    * [:man_office_worker: Developers :woman_office_worker:](about#-developers-)
     * [:question: Why does the product names omelette?](about#-why-does-the-product-names-omelette)
     * [:deciduous_tree: Attributions](about#-attributions)
