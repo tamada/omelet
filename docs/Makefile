@@ -1,7 +1,7 @@
 PWD := ${CURDIR}
-CONTAINER_NAME := "wwwomelet"
+CONTAINER_NAME := "wwwomelette"
 CONTAINER_REMOVE_FLAG := "--rm"
-BASE_URL := "https://tamada.github.io/omelet"
+BASE_URL := "https://tamada.github.io/omelette"
 JOJOMI_VERSION := "0.69.0"
 
 build:

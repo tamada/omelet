@@ -1,4 +1,6 @@
-omelet
+omelette
+dist
+
 ### https://raw.github.com/github/gitignore/14f8a8b4c51ecc00b18905a95c117954e6c77b9d/Maven.gitignore
 
 target/
@@ -131,3 +133,22 @@ local.properties
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+### https://raw.github.com/github/gitignore/36ce3a894d9ddff2916bc98d71380aa7167ff1d7/Gradle.gitignore
+
+.gradle
+**/build/
+!src/**/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+

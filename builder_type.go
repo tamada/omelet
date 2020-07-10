@@ -1,20 +1,15 @@
-package omelet
+package omelette
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 )
 
 type BuilderType interface {
-	ProductCodeDir(project *Project) string
-	TestCodeDir(project *Project) string
+	ProductCodeDir(project *BasicProject) string
+	TestCodeDir(project *BasicProject) string
+	//	Classpath() []string
 	Name() string
-}
-
-func FileExists(path string) bool {
-	_, err := os.Stat(path)
-	return err == nil
 }
 
 func ParseType(projectPath string) (BuilderType, error) {
@@ -26,7 +21,7 @@ func ParseType(projectPath string) (BuilderType, error) {
 		{"build.gradle", func() BuilderType { return new(GradleType) }},
 	}
 	for _, parser := range parsers {
-		if FileExists(filepath.Join(projectPath, parser.fileName)) {
+		if ExistsFile(filepath.Join(projectPath, parser.fileName)) {
 			return parser.generator(), nil
 		}
 	}
@@ -40,12 +35,12 @@ func (gt *GradleType) Name() string {
 	return "gradle"
 }
 
-func (gt *GradleType) ProductCodeDir(project *Project) string {
-	return filepath.Join(project.Path, "build/classes/java/main")
+func (gt *GradleType) ProductCodeDir(project *BasicProject) string {
+	return filepath.Join(project.BaseDir(), "build/classes/java/main")
 }
 
-func (gt *GradleType) TestCodeDir(project *Project) string {
-	return filepath.Join(project.Path, "build/classes/java/test")
+func (gt *GradleType) TestCodeDir(project *BasicProject) string {
+	return filepath.Join(project.BaseDir(), "build/classes/java/test")
 }
 
 type MavenType struct {
@@ -55,10 +50,10 @@ func (mt *MavenType) Name() string {
 	return "maven"
 }
 
-func (mt *MavenType) ProductCodeDir(project *Project) string {
-	return filepath.Join(project.Path, "target/classes")
+func (mt *MavenType) ProductCodeDir(project *BasicProject) string {
+	return filepath.Join(project.BaseDir(), "target/classes")
 }
 
-func (mt *MavenType) TestCodeDir(project *Project) string {
-	return filepath.Join(project.Path, "target/test-classes")
+func (mt *MavenType) TestCodeDir(project *BasicProject) string {
+	return filepath.Join(project.BaseDir(), "target/test-classes")
 }
