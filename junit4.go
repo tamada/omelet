@@ -1,6 +1,7 @@
 package omelette
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"os/exec"
@@ -78,9 +79,15 @@ func (j4tr *JUnit4TestRunner) executeUnitTests(config *Config) error {
 	args := strings.Split(cli, " ")
 	cmd := exec.Command("java", args...)
 	cmd.Dir = j4tr.Project.BaseDir()
+	stderr := bytes.NewBuffer([]byte{})
+	cmd.Stderr = stderr
 	out, err := cmd.Output()
+	if err != nil {
+		fmt.Printf("%s", stderr.String())
+		return fmt.Errorf("JUnit4 failed: %s", err.Error())
+	}
 	config.PrintIfVerbose("output: %s", string(out))
-	return err
+	return nil
 }
 
 func (j4tr JUnit4TestRunner) Postprocess(config *Config) {

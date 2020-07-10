@@ -43,11 +43,16 @@ func (config *Config) PrintIfVerbose(formatter string, args ...interface{}) {
 
 func getOmeletteHome() string {
 	path := os.Getenv(OMELETTE_HOME_ENV_NAME)
-	if path != "" && ExistsFile(path) {
+	if path != "" && ExistsDir(path) {
 		return path
 	}
 	wd, _ := os.Getwd()
 	return wd
+}
+
+func ExistsDir(path string) bool {
+	info, err := os.Stat(path)
+	return err == nil && info.IsDir()
 }
 
 func ExistsFile(path string) bool {

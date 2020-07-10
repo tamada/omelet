@@ -40,11 +40,13 @@ func existsDirectory(path string) bool {
 }
 
 func (opts *options) validate(args []string) error {
-	if len(args) == 0 && (opts.project.productDir == "" && opts.project.testDir == "") {
+	if len(args) == 0 && !opts.project.availableDirs() {
 		return fmt.Errorf("product-code and test-code options are mandatory if no arguments")
 	}
-	if len(args) == 1 && !existsDirectory(args[0]) {
-		return fmt.Errorf("%s: directory not found", args[0])
+	if len(args) == 1 {
+		if !opts.project.availableDirs() && !existsDirectory(args[0]) {
+			return fmt.Errorf("%s: directory not found", args[0])
+		}
 	}
 	if len(args) > 1 {
 		return fmt.Errorf("%v: too many arguments", args)
@@ -107,13 +109,13 @@ func (opts *options) build(args []string) (omelette.TestRunner, *omelette.Config
 func perform(args []string, opts *options) int {
 	runner, config, err := opts.build(args)
 	if err != nil {
-		return printError(err, 6)
+		return printError(err, 3)
 	}
 	for _, cp := range opts.classpaths {
 		runner.AppendClasspath(cp)
 	}
 	if err := runner.Perform(config); err != nil {
-		return printError(err, 1)
+		return printError(err, 4)
 	}
 	runner.Postprocess(config)
 	return 0
@@ -158,10 +160,10 @@ func buildFlagSet() (*flag.FlagSet, *options) {
 	flags.StringVarP(&opts.project.productDir, "product-code", "p", "", "specifies the directory contains the product codes.")
 	flags.StringVarP(&opts.project.testDir, "test-code", "t", "", "specifies the directory contains the test codes.")
 	flags.StringSliceVarP(&opts.classpaths, "classpath", "c", []string{}, "specifies classpath separated with colon")
-	flags.BoolVarP(&opts.config.deleteTempFileFlag, "delete-tempfiles", "d", false, "delete temporary files after running")
+	flags.BoolVarP(&opts.config.deleteTempFileFlag, "delete-tempfiles", "d", false, "deletes temporary files after running")
 	flags.BoolVarP(&opts.config.verboseFlag, "verbose", "v", false, "verbose mode")
-	flags.BoolVarP(&opts.noCoverageFlag, "no-coverage", "n", false, "no calculating coverage of test codes")
-	flags.BoolVarP(&opts.helpFlag, "help", "h", false, "print this message")
+	flags.BoolVarP(&opts.noCoverageFlag, "no-coverage", "n", false, "calculats no coverage of test codes")
+	flags.BoolVarP(&opts.helpFlag, "help", "h", false, "prints this message")
 	return flags, opts
 }
 
@@ -177,7 +179,7 @@ func parseOptions(args []string) ([]string, *options, error) {
 func goMain(args []string) int {
 	args, opts, err := parseOptions(args)
 	if err != nil {
-		return printError(err, 1)
+		return printError(fmt.Errorf("args parse error: %s", err.Error()), 1)
 	}
 	if opts.helpFlag {
 		return printError(fmt.Errorf(helpMessage()), 0)
