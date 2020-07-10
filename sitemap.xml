@@ -3,31 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tamada.github.io/omelet/install/</loc>
+    <loc>https://tamada.github.io/omelette/examples/</loc>
+    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tamada.github.io/omelette/install/</loc>
     <lastmod>2020-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tamada.github.io/omelet/usage/</loc>
+    <loc>https://tamada.github.io/omelette/</loc>
     <lastmod>2020-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tamada.github.io/omelet/</loc>
+    <loc>https://tamada.github.io/omelette/usage/</loc>
     <lastmod>2020-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tamada.github.io/omelet/about/</loc>
+    <loc>https://tamada.github.io/omelette/about/</loc>
     <lastmod>2020-04-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://tamada.github.io/omelet/categories/</loc>
+    <loc>https://tamada.github.io/omelette/categories/</loc>
   </url>
   
   <url>
-    <loc>https://tamada.github.io/omelet/tags/</loc>
+    <loc>https://tamada.github.io/omelette/tags/</loc>
   </url>
   
 </urlset>

@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>:house: Home on Omelet</title>
-    <link>https://tamada.github.io/omelet/</link>
-    <description>Recent content in :house: Home on Omelet</description>
+    <title>:house: Home on Omelette</title>
+    <link>https://tamada.github.io/omelette/</link>
+    <description>Recent content in :house: Home on Omelette</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://tamada.github.io/omelet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tamada.github.io/omelette/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>:anchor: Install</title>
-      <link>https://tamada.github.io/omelet/install/</link>
-      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      <title>:horse_racing: Examples</title>
+      <link>https://tamada.github.io/omelette/examples/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tamada.github.io/omelet/install/</guid>
-      <description>🍺 Homebrew brew install tamada/brew/omelet Go lang go get github.com/tamada/omelet 🛠️ Build from source codes $ git clone https://github.com/tamada/omelet.git $ cd omelet $ make </description>
+      <guid>https://tamada.github.io/omelette/examples/</guid>
+      <description>nmaker An example for running omelette with no dependencies.
+git clone https://github.com/tamada/nmaker.git cd nmaker mvn package # -&amp;gt; build the project. omelette -v . # run omelette in the verbose mode, and generate nmaker_coverage.csv in the current directory. 9rules An example for running omelette with dependency libraries.
+git clone https://github.com/tamada/9rules.git cd 9rules mvn package # -&amp;gt; download dependencies, copy them into target/lib directory, then build the project. omelette -c target/lib .</description>
     </item>
     
     <item>
-      <title>:fork_and_knife: Usage</title>
-      <link>https://tamada.github.io/omelet/usage/</link>
+      <title>:anchor: Install</title>
+      <link>https://tamada.github.io/omelette/install/</link>
       <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tamada.github.io/omelet/usage/</guid>
-      <description>📎 CLI $ omelet --help omelet version 1.0.0 omelet [OPTIONS] &amp;lt;PROJECT_DIRs...&amp;gt; OPTIONS -c, --classpath &amp;lt;PATH&amp;gt; specifies classpath separated with colon. -d, --delete-tempfiles delete temporary files after running. -e, --excludes &amp;lt;REGEXP&amp;gt; specifies target exclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -i, --includes &amp;lt;REGEXP&amp;gt; specifies target inclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -n, --no-coverage no calculating coverage of test codes. -v, --verbose verbose mode. -h, --help print this message.</description>
+      <guid>https://tamada.github.io/omelette/install/</guid>
+      <description>🍺 Homebrew brew install tamada/brew/omelette Go lang go get github.com/tamada/omelette 🛠️ Build from source codes $ git clone https://github.com/tamada/omelette.git $ cd omelet $ make </description>
+    </item>
+    
+    <item>
+      <title>:runner: Usage</title>
+      <link>https://tamada.github.io/omelette/usage/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://tamada.github.io/omelette/usage/</guid>
+      <description>📎 CLI $ omelette --help omelette version 1.0.0 omelette [OPTIONS] &amp;lt;PROJECT_DIR&amp;gt; or omelette [OPTIONS] -p &amp;lt;PRODUCT_CODE_DIR&amp;gt; -t &amp;lt;TEST_CODE_DIR&amp;gt; [PROJECT_NAME] OPTIONS -c, --classpath &amp;lt;PATH&amp;gt; specifies classpath separated with colon. -d, --delete-tempfiles delete temporary files after running. -e, --excludes &amp;lt;REGEXP&amp;gt; specifies target exclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -i, --includes &amp;lt;REGEXP&amp;gt; specifies target inclusion rules for unit tests. Default is &amp;#34;&amp;#34; (no filtering). -n, --no-coverage no calculating coverage of test codes.</description>
     </item>
     
     <item>
       <title>:smile: About</title>
-      <link>https://tamada.github.io/omelet/about/</link>
+      <link>https://tamada.github.io/omelette/about/</link>
       <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tamada.github.io/omelet/about/</guid>
+      <guid>https://tamada.github.io/omelette/about/</guid>
       <description>📜 License Do What The F*ck You Want To Public License
 
- WTFPL permits  👍 Commercial use, 👍 Modification, 👍 Distribution, and 👍 Private use.    🐾 Developers  Haruaki Tamada  ❓ Why does the product names omelet? Because the lunch was omelet, when I developed this product.
-🌳 Attributions   This icons made by Nhor Phai from www.flaticon.com   </description>
+ WTFPL permits  👍 Commercial use, 👍 Modification, 👍 Distribution, and 👍 Private use.    👨‍💼 Developers 👩‍💼  Haruaki Tamada  ❓ Why does the product names omelette? Because the lunch was omelette, when I developed this product.
+🤝 Attributions   This icons made by Nhor Phai from www.flaticon.com   </description>
     </item>
     
   </channel>
