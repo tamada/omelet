@@ -27,7 +27,7 @@ ARGUMENTS
     PROJECT_NAME                specifies the project name for destination file. Default is "unknown".
 ```
 
-### :briefcase: Requirements
+## :briefcase: Requirements
 
 * Runtime
     * bash completion 2.x or later.

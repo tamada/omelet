@@ -8,7 +8,7 @@ import (
 	"github.com/tamada/omelette"
 )
 
-const VERSION = "1.1.0"
+const VERSION = "1.1.1"
 
 type filterOpts struct {
 	includes string
@@ -79,7 +79,7 @@ func (projectOpts *projectOpts) buildFakeProject(args []string, config *omelette
 		name = args[0]
 	}
 	project := omelette.NewFakeProject(name, projectOpts.productDir, projectOpts.testDir)
-	config.PrintIfVerbose("%s: %s", args[0], project.String())
+	config.PrintIfVerbose("%s: %s", name, project.String())
 	return project, nil
 }
 

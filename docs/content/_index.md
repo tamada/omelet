@@ -5,7 +5,7 @@ date: 2020-04-14
 
 [![codebeat badge](https://codebeat.co/badges/23134092-de46-44aa-942c-5d4a070eaf3c)](https://codebeat.co/projects/github-com-tamada-omelette-master)
 [![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelette/blob/master/LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.1.0-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.1.0)
+[![Version](https://img.shields.io/badge/Version-1.1.1-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.1.1)
 
 
 ## :bookmark_tabs: Description
@@ -37,4 +37,4 @@ Therefore, we developed `omelette` for running unit tests and calculating test c
     * [:scroll: License](about#-license)
     * [:man_office_worker: Developers :woman_office_worker:](about#-developers-)
     * [:question: Why does the product names omelette?](about#-why-does-the-product-names-omelette)
-    * [:deciduous_tree: Attributions](about#-attributions)
+    * [:handshake: Attributions](about#-attributions)
