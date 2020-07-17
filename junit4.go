@@ -82,11 +82,11 @@ func (j4tr *JUnit4TestRunner) executeUnitTests(config *Config) error {
 	stderr := bytes.NewBuffer([]byte{})
 	cmd.Stderr = stderr
 	out, err := cmd.Output()
+	config.PrintIfVerbose("output: %s", string(out))
 	if err != nil {
 		fmt.Printf("%s", stderr.String())
 		return fmt.Errorf("JUnit4 failed: %s", err.Error())
 	}
-	config.PrintIfVerbose("output: %s", string(out))
 	return nil
 }
 
