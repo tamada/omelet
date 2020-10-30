@@ -1,6 +1,7 @@
 [![codebeat badge](https://codebeat.co/badges/23134092-de46-44aa-942c-5d4a070eaf3c)](https://codebeat.co/projects/github-com-tamada-omelette-master)
 [![License](https://img.shields.io/badge/License-WTFPL-blue.svg)](https://github.com/tamada/omelette/blob/master/LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.1.1-yellowgreen.svg)](https://github.com/tamada/omelette/releases/tag/v1.1.1)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftamada%2Fomelette.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftamada%2Fomelette?ref=badge_shield)
 
 # Omelette
 
@@ -96,6 +97,9 @@ make
     * :+1: Modification,
     * :+1: Distribution, and
     * :+1: Private use.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftamada%2Fomelette.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftamada%2Fomelette?ref=badge_large)
 
 ### :man_office_worker: Developers :woman_office_worker:
 
